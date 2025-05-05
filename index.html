@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home | Ride Flex Nepal</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #111;
+      padding: 20px;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00ffcc;
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      width: 40px;
+      height: auto;
+      margin-right: 10px;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links li a {
+      text-decoration: none;
+      color: #ccc;
+      transition: color 0.3s;
+    }
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #00ffcc;
+    }
+
+    /* Hero Section with One Image */
+    .hero-banner {
+      height: 90vh;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-top: 70px;
+      position: relative;
+      background: url('image1.jpg') no-repeat center center/cover;
+    }
+
+    .hero-text {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 10px;
+    }
+    .hero-text h1 {
+      font-size: 48px;
+      color: #00ffcc;
+    }
+    .hero-text p {
+      font-size: 20px;
+      color: #fff;
+      margin-top: 10px;
+    }
+
+    main {
+      padding: 40px 20px;
+      text-align: center;
+    }
+    h2 {
+      color: #00ffcc;
+      margin-bottom: 20px;
+    }
+    .content {
+      margin-top: 40px;
+      color: #ccc;
+    }
+    .content p {
+      line-height: 1.8;
+    }
+    .cta-buttons {
+      margin-top: 30px;
+    }
+    .cta-buttons a {
+      text-decoration: none;
+      color: #fff;
+      background-color: #00ffcc;
+      padding: 10px 20px;
+      margin: 10px;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    .cta-buttons a:hover {
+      background-color: #00cc99;
+    }
+
+    .featured-table {
+      width: 80%;
+      margin: 30px auto;
+      border-collapse: collapse;
+    }
+    .featured-table th, .featured-table td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #00ffcc;
+    }
+    .featured-table th {
+      background-color: #111;
+      color: #00ffcc;
+    }
+    .featured-table td {
+      background-color: #333;
+      color: #ccc;
+    }
+
+    footer {
+      background-color: #000;
+      color: #ccc;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+    footer a {
+      color: #00ffcc;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo.JPG" alt="Ride Flex Nepal Logo" />
+        Ride Flex Nepal
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero-banner">
+    <div class="hero-text">
+      <h1>Welcome to Ride Flex Nepal</h1>
+      <p>Your Journey, Our Passion</p>
+    </div>
+  </section>
+
+  <main>
+    <h2>Welcome to Ride Flex Nepal</h2>
+    <div class="content">
+      <p>Ride Flex Nepal offers flexible and affordable vehicle rental options across Nepal. Whether you're looking for a bike or a car, with or without a driver, we provide services that meet your needs. Additionally, we support Pathao riders by offering bikes to earn through Indrive/Pathao.</p>
+      <p>Explore our services, discover the best vehicles for rent, and take advantage of our exceptional logistics service.</p>
+    </div>
+    <div class="cta-buttons">
+      <a href="about.html">Learn More</a>
+      <a href="contact.html">Get in Touch</a>
+    </div>
+  </main>
+
+  <section>
+    <h2>Our Services at a Glance</h2>
+    <table class="featured-table">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Includes Driver</th>
+          <th>Self-Drive Option</th>
+          <th>Available For</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bike Rental</td>
+          <td>No</td>
+          <td>Yes</td>
+          <td>Daily / Weekly / Monthly</td>
+        </tr>
+        <tr>
+          <td>Car Rental</td>
+          <td>Yes (Optional)</td>
+          <td>Yes</td>
+          <td>Hourly / Daily / Long Trip</td>
+        </tr>
+        <tr>
+          <td>Logistics Delivery</td>
+          <td>Yes</td>
+          <td>No</td>
+          <td>Documents / Parcels / Goods</td>
+        </tr>
+        <tr>
+          <td>Pathao Rider Support</td>
+          <td>N/A</td>
+          <td>Yes (Bike Provided)</td>
+          <td>Indrive / Pathao Jobs</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Ride Flex Nepal | Balaju 16, Kathmandu, Nepal</p>
+    <p><a href="mailto:rideflexnepal@gmail.com">rideflexnepal@gmail.com</a></p>
+  </footer>
+</body>
+</html>

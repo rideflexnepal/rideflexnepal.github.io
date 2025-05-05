@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Services | Ride Flex Nepal</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      color: #fff;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #111;
+      padding: 20px;
+      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #00ffcc;
+      display: flex;
+      align-items: center;
+    }
+    .logo img {
+      width: 40px;
+      height: auto;
+      margin-right: 10px;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links li a {
+      text-decoration: none;
+      color: #ccc;
+      transition: color 0.3s;
+    }
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #00ffcc;
+    }
+
+    main {
+      padding: 80px 20px; 
+      text-align: center;
+    }
+    h2 {
+      color: #00ffcc;
+      margin-bottom: 40px;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+    .service-card {
+      background-color: #333;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+      text-align: center;
+    }
+    .service-card img {
+      width: 120px; 
+      height: 120px; 
+      margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-size: 24px;
+      color: #00ffcc;
+    }
+    .service-card p {
+      font-size: 16px;
+      color: #ccc;
+      margin-top: 10px;
+    }
+
+  
+    .pricing-table {
+      width: 80%;
+      margin: 30px auto;
+      border-collapse: collapse;
+      margin-bottom: 40px;
+    }
+    .pricing-table th,
+    .pricing-table td {
+      padding: 10px;
+      text-align: center;
+      border: 1px solid #00ffcc;
+    }
+    .pricing-table th {
+      background-color: #111;
+      color: #00ffcc;
+    }
+    .pricing-table td {
+      background-color: #333;
+      color: #ccc;
+    }
+
+
+    .accordion {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      text-align: left;
+      cursor: pointer;
+      width: 100%;
+      margin-bottom: 5px;
+      border-radius: 5px;
+      font-size: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .accordion:hover {
+      background-color: #444;
+    }
+    .panel {
+      padding: 10px;
+      background-color: #444;
+      color: #ccc;
+      display: none;
+    }
+    footer {
+      background-color: #000;
+      color: #ccc;
+      padding: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+    footer a {
+      color: #00ffcc;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    .cta-buttons a {
+      text-decoration: none;
+      color: #fff;
+      background-color: #00ffcc;
+      padding: 10px 20px;
+      margin-top: 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+    .cta-buttons a:hover {
+      background-color: #00cc99;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo.JPG" alt="Ride Flex Nepal Logo" />
+        Ride Flex Nepal
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Our Services</h2>
+
+    
+    <div class="services-grid">
+  
+      <div class="service-card">
+        <img src="bike-icon.jpg" alt="Bike Rental Service" />
+        <h3>Bike Rental</h3>
+        <p>Rent a bike for daily, weekly, or monthly usage. Choose your ride and enjoy the flexibility!</p>
+      </div>
+    
+      <div class="service-card">
+        <img src="car-icon.jpeg" alt="Car Rental Service" />
+        <h3>Car Rental</h3>
+        <p>Rent a car with or without a driver. Choose from hourly or long-trip options to suit your needs.</p>
+      </div>
+ 
+      <div class="service-card">
+        <img src="logistics-icon.jpg" alt="Logistics Delivery Service" />
+        <h3>Logistics Delivery</h3>
+        <p>Efficient delivery services for documents, parcels, and goods with our trusted logistics team.</p>
+      </div>
+    </div>
+
+    <div class="accordion" onclick="toggleAccordion('bike-details')">
+      Bike Rental Details <span id="bike-arrow">v</span>
+    </div>
+    <div class="panel" id="bike-details">
+      <p>Our bike rental service offers a range of bikes suitable for city commuting or long trips. Whether you need it for a few hours or days, we have flexible options to meet your needs.</p>
+    </div>
+
+    <div class="accordion" onclick="toggleAccordion('car-details')">
+      Car Rental Details <span id="car-arrow">v</span>
+    </div>
+    <div class="panel" id="car-details">
+      <p>Our car rental service provides options to rent with or without a driver. We offer a variety of vehicles, from sedans to SUVs, to cater to different trip durations and travel needs.</p>
+    </div>
+
+    <div class="accordion" onclick="toggleAccordion('logistics-details')">
+      Logistics Delivery Details <span id="logistics-arrow">v</span>
+    </div>
+    <div class="panel" id="logistics-details">
+      <p>We provide safe and reliable logistics services for transporting documents, parcels, and other goods. Whether it's a small delivery or large cargo, we’ve got you covered.</p>
+    </div>
+
+    <h2>Our Pricing</h2>
+    <table class="pricing-table">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Price (per hour)</th>
+          <th>Price (per day)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bike Rental</td>
+          <td>$2</td>
+          <td>$10</td>
+        </tr>
+        <tr>
+          <td>Car Rental</td>
+          <td>$10</td>
+          <td>$50</td>
+        </tr>
+        <tr>
+          <td>Logistics Delivery</td>
+          <td>$2</td>
+          <td>$10</td>
+        </tr>
+      </tbody>
+    </table>
+
+  
+    <div class="cta-buttons">
+      <a href="contact.html">Get a Quote</a>
+      <a href="contact.html">Customize Your Plan</a>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ride Flex Nepal | Balaju 16, Kathmandu, Nepal</p>
+    <p><a href="mailto:rideflexnepal@gmail.com">rideflexnepal@gmail.com</a></p>
+  </footer>
+
+  <script>
+    function toggleAccordion(id) {
+      var panel = document.getElementById(id);
+      var arrow = document.getElementById(id + '-arrow');
+      panel.style.display = panel.style.display === "block" ? "none" : "block";
+      arrow.textContent = panel.style.display === "block" ? "^" : "v";
+    }
+  </script>
+</body>
+</html>
