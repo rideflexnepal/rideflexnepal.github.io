@@ -10,9 +10,10 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+      background: #000;
       color: #fff;
     }
 
@@ -39,7 +40,6 @@
 
     .logo img {
       width: 40px;
-      height: auto;
       margin-right: 10px;
     }
 
@@ -55,52 +55,68 @@
       transition: color 0.3s;
     }
 
-    .nav-links li a:hover, .nav-links li a.active {
+    .nav-links li a:hover,
+    .nav-links li a.active {
       color: #00ffcc;
     }
 
-
     .gallery-section {
-      padding: 100px 20px;
-      text-align: center;
+      margin-top: 100px;
+      width: 100vw;
+      min-height: 100vh;
+      padding: 20px;
     }
 
     h2 {
-      font-size: 2rem;
+      font-size: 2.5rem;
       color: #00ffcc;
-      margin-bottom: 20px;
+      text-align: center;
+      margin-bottom: 10px;
     }
 
     .gallery-intro {
       font-size: 1.1rem;
       color: #ccc;
-      margin-bottom: 40px;
+      text-align: center;
+      margin-bottom: 30px;
     }
 
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 20px;
-      justify-items: center;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 15px;
+      width: 100%;
     }
 
     .gallery-item {
-      width: 100%;
-      overflow: hidden;
       position: relative;
-      border-radius: 8px;
-      cursor: pointer;
+      overflow: hidden;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
     }
 
     .gallery-item img {
       width: 100%;
       height: 100%;
+      max-height: 400px;
       object-fit: cover;
-      transition: transform 0.3s ease;
+      transition: transform 0.4s ease, opacity 0.4s;
     }
 
     .gallery-item:hover img {
-      transform: scale(1.1);
+      transform: scale(1.08);
+      opacity: 0.9;
+    }
+
+    .vehicle-code {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 5px 10px;
+      font-size: 0.9rem;
+      color: #00ffcc;
+      border-radius: 5px;
     }
 
     footer {
@@ -115,6 +131,15 @@
       text-decoration: none;
     }
 
+    @media (max-width: 600px) {
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      .gallery-item img {
+        max-height: 250px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -134,36 +159,64 @@
     </ul>
   </div>
 
-  <div class="gallery-section">
+  <!-- Gallery Section -->
+  <section class="gallery-section">
     <h2>Our Gallery</h2>
     <p class="gallery-intro">Explore our wide range of bike and car rental services. Browse through our gallery to see the quality we offer!</p>
 
-
     <div class="gallery-grid">
       <div class="gallery-item">
-        <img src="bike1.jpg" alt="Bike Rental 1" />
+        <img src="bike1.jpg" alt="Bike Rental 1">
+        <div class="vehicle-code">BK001</div>
       </div>
       <div class="gallery-item">
-        <img src="car1.jpg" alt="Car Rental 1" />
+        <img src="car1.jpg" alt="Car Rental 1">
+        <div class="vehicle-code">CR001</div>
       </div>
       <div class="gallery-item">
-        <img src="logistics-icon.jpg" alt="Logistics Service 1" />
+        <img src="sonet.jpg" alt="Logistics Service 1">
+        <div class="vehicle-code">LG001</div>
       </div>
       <div class="gallery-item">
-        <img src="bike2.jpg" alt="Bike Rental 2" />
+        <img src="bike2.jpg" alt="Bike Rental 2">
+        <div class="vehicle-code">BK002</div>
       </div>
       <div class="gallery-item">
-        <img src="car2.jpeg" alt="Car Rental 2" />
+        <img src="car2.jpeg" alt="Car Rental 2">
+        <div class="vehicle-code">CR002</div>
       </div>
       <div class="gallery-item">
-        <img src="logistics.jpg" alt="logistics Service 2" />
-
-        
-     
+        <img src="neta.jpg" alt="Logistics Service 2">
+        <div class="vehicle-code">LG002</div>
+      </div>
+      <div class="gallery-item">
+        <img src="splendor.jpeg" alt="Bike Rental 3">
+        <div class="vehicle-code">BK003</div>
+      </div>
+      <div class="gallery-item">
+        <img src="honda.jpg" alt="Bike Rental 4">
+        <div class="vehicle-code">BK004</div>
+      </div>
+      <div class="gallery-item">
+        <img src="pulsar.jpg" alt="Bike Rental 5">
+        <div class="vehicle-code">BK005</div>
+      </div>
+      <div class="gallery-item">
+        <img src="seltos.jpg" alt="Car Rental 3">
+        <div class="vehicle-code">CR003</div>
+      </div>
+      <div class="gallery-item">
+        <img src="d.jpg" alt="Logistics Service 3">
+        <div class="vehicle-code">LG003</div>
+      </div>
+      <div class="gallery-item">
+        <img src="p.jpeg" alt="Logistics Service 4">
+        <div class="vehicle-code">LG004</div>
+      </div>
     </div>
-  </div>
+  </section>
 
-
+  <!-- Footer -->
   <footer>
     <p>&copy; 2025 Ride Flex Nepal | Balaju 16, Kathmandu, Nepal</p>
     <p><a href="mailto:rideflexnepal@gmail.com">Contact Us</a></p>

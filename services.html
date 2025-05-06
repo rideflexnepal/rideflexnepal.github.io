@@ -14,6 +14,10 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
       color: #fff;
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
     }
     .navbar {
       display: flex;
@@ -55,8 +59,9 @@
     }
 
     main {
-      padding: 80px 20px; 
+      padding: 120px 20px 20px;
       text-align: center;
+      flex: 1; /* Ensures the content takes full available space */
     }
     h2 {
       color: #00ffcc;
@@ -74,10 +79,11 @@
       border-radius: 10px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
       text-align: center;
+      position: relative;
     }
     .service-card img {
-      width: 120px; 
-      height: 120px; 
+      width: 120px;
+      height: 120px;
       margin-bottom: 20px;
     }
     .service-card h3 {
@@ -90,78 +96,111 @@
       margin-top: 10px;
     }
 
-  
-    .pricing-table {
-      width: 80%;
-      margin: 30px auto;
-      border-collapse: collapse;
-      margin-bottom: 40px;
-    }
-    .pricing-table th,
-    .pricing-table td {
-      padding: 10px;
-      text-align: center;
-      border: 1px solid #00ffcc;
-    }
-    .pricing-table th {
-      background-color: #111;
-      color: #00ffcc;
-    }
-    .pricing-table td {
-      background-color: #333;
-      color: #ccc;
-    }
-
-
-    .accordion {
-      background-color: #333;
-      color: #fff;
+    .cta-button {
+      background-color: #00ffcc;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
       border: none;
-      padding: 10px;
-      text-align: left;
-      cursor: pointer;
-      width: 100%;
-      margin-bottom: 5px;
       border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 20px;
+    }
+    .cta-button:hover {
+      background-color: #00cc99;
+    }
+
+    /* Captivating Content */
+    .captivating-content {
+      background-color: #222;
+      padding: 40px 20px;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .captivating-content h3 {
+      font-size: 28px;
+      color: #00ffcc;
+      margin-bottom: 20px;
+    }
+    .captivating-content p {
       font-size: 18px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .accordion:hover {
-      background-color: #444;
-    }
-    .panel {
-      padding: 10px;
-      background-color: #444;
       color: #ccc;
-      display: none;
+      line-height: 1.6;
     }
-    footer {
+
+    .footer {
       background-color: #000;
       color: #ccc;
       padding: 20px;
       text-align: center;
       font-size: 14px;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
     }
-    footer a {
+    .footer a {
       color: #00ffcc;
       text-decoration: none;
     }
-    footer a:hover {
+    .footer a:hover {
       text-decoration: underline;
     }
-    .cta-buttons a {
-      text-decoration: none;
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      justify-content: center;
+      align-items: center;
+      z-index: 200;
+    }
+    .modal-content {
+      background-color: #333;
+      padding: 30px;
+      border-radius: 10px;
+      width: 60%;
+      text-align: center;
+    }
+    .close {
       color: #fff;
-      background-color: #00ffcc;
-      padding: 10px 20px;
-      margin-top: 20px;
-      border-radius: 5px;
+      font-size: 30px;
+      cursor: pointer;
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      padding: 10px;
       font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+    .form-group textarea {
+      height: 100px;
+    }
+
+    .submit-button {
+      background-color: #00ffcc;
+      color: white;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
       transition: background-color 0.3s;
     }
-    .cta-buttons a:hover {
+    .submit-button:hover {
       background-color: #00cc99;
     }
   </style>
@@ -185,96 +224,105 @@
 
   <main>
     <h2>Our Services</h2>
-
-    
     <div class="services-grid">
-  
       <div class="service-card">
-        <img src="bike-icon.jpg" alt="Bike Rental Service" />
+        <img src="bike-icon.jpg" alt="Bike Rental" />
         <h3>Bike Rental</h3>
         <p>Rent a bike for daily, weekly, or monthly usage. Choose your ride and enjoy the flexibility!</p>
+        <button class="cta-button" onclick="openModal('bike-modal')">Book Now</button>
       </div>
-    
+
       <div class="service-card">
-        <img src="car-icon.jpeg" alt="Car Rental Service" />
+        <img src="car-icon.jpeg" alt="Car Rental" />
         <h3>Car Rental</h3>
         <p>Rent a car with or without a driver. Choose from hourly or long-trip options to suit your needs.</p>
+        <button class="cta-button" onclick="openModal('car-modal')">Book Now</button>
       </div>
- 
+
       <div class="service-card">
-        <img src="logistics-icon.jpg" alt="Logistics Delivery Service" />
+        <img src="logistics-icon.jpg" alt="Logistics Delivery" />
         <h3>Logistics Delivery</h3>
         <p>Efficient delivery services for documents, parcels, and goods with our trusted logistics team.</p>
+        <button class="cta-button" onclick="openModal('logistics-modal')">Book Now</button>
       </div>
     </div>
 
-    <div class="accordion" onclick="toggleAccordion('bike-details')">
-      Bike Rental Details <span id="bike-arrow">v</span>
-    </div>
-    <div class="panel" id="bike-details">
-      <p>Our bike rental service offers a range of bikes suitable for city commuting or long trips. Whether you need it for a few hours or days, we have flexible options to meet your needs.</p>
-    </div>
-
-    <div class="accordion" onclick="toggleAccordion('car-details')">
-      Car Rental Details <span id="car-arrow">v</span>
-    </div>
-    <div class="panel" id="car-details">
-      <p>Our car rental service provides options to rent with or without a driver. We offer a variety of vehicles, from sedans to SUVs, to cater to different trip durations and travel needs.</p>
+    <!-- Captivating Content Section -->
+    <div class="captivating-content">
+      <h3>Why Choose Us?</h3>
+      <p>At Ride Flex Nepal, we believe in offering our customers the best in class transportation solutions. Whether you're looking for a bike rental, a comfortable car ride, or logistics delivery, we've got you covered. We promise high-quality vehicles, excellent service, and a seamless experience. Let us take care of your travel needs!</p>
     </div>
 
-    <div class="accordion" onclick="toggleAccordion('logistics-details')">
-      Logistics Delivery Details <span id="logistics-arrow">v</span>
-    </div>
-    <div class="panel" id="logistics-details">
-      <p>We provide safe and reliable logistics services for transporting documents, parcels, and other goods. Whether it's a small delivery or large cargo, we’ve got you covered.</p>
+    <!-- Modal -->
+    <div id="bike-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('bike-modal')">&times;</span>
+        <h2>Book Bike Rental</h2>
+        <form action="https://formspree.io/f/xovddeyj" method="POST">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required />
+          </div>
+          <div class="form-group">
+            <textarea name="message" placeholder="Message" required></textarea>
+          </div>
+          <button type="submit" class="submit-button">Submit</button>
+        </form>
+      </div>
     </div>
 
-    <h2>Our Pricing</h2>
-    <table class="pricing-table">
-      <thead>
-        <tr>
-          <th>Service</th>
-          <th>Price (per hour)</th>
-          <th>Price (per day)</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Bike Rental</td>
-          <td>$2</td>
-          <td>$10</td>
-        </tr>
-        <tr>
-          <td>Car Rental</td>
-          <td>$10</td>
-          <td>$50</td>
-        </tr>
-        <tr>
-          <td>Logistics Delivery</td>
-          <td>$2</td>
-          <td>$10</td>
-        </tr>
-      </tbody>
-    </table>
+    <div id="car-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('car-modal')">&times;</span>
+        <h2>Book Car Rental</h2>
+        <form action="https://formspree.io/f/xovddeyj" method="POST">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required />
+          </div>
+          <div class="form-group">
+            <textarea name="message" placeholder="Message" required></textarea>
+          </div>
+          <button type="submit" class="submit-button">Submit</button>
+        </form>
+      </div>
+    </div>
 
-  
-    <div class="cta-buttons">
-      <a href="contact.html">Get a Quote</a>
-      <a href="contact.html">Customize Your Plan</a>
+    <div id="logistics-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('logistics-modal')">&times;</span>
+        <h2>Book Logistics Delivery</h2>
+        <form action="https://formspree.io/f/xovddeyj" method="POST">
+          <div class="form-group">
+            <input type="text" name="name" placeholder="Your Name" required />
+          </div>
+          <div class="form-group">
+            <input type="email" name="email" placeholder="Your Email" required />
+          </div>
+          <div class="form-group">
+            <textarea name="message" placeholder="Message" required></textarea>
+          </div>
+          <button type="submit" class="submit-button">Submit</button>
+        </form>
+      </div>
     </div>
   </main>
 
-  <footer>
-    <p>&copy; 2025 Ride Flex Nepal | Balaju 16, Kathmandu, Nepal</p>
-    <p><a href="mailto:rideflexnepal@gmail.com">rideflexnepal@gmail.com</a></p>
+  <footer class="footer">
+    <p>Ride Flex Nepal | &copy; 2025</p>
+    <p>Follow us on <a href="#">Instagram</a> | <a href="#">Facebook</a></p>
   </footer>
 
   <script>
-    function toggleAccordion(id) {
-      var panel = document.getElementById(id);
-      var arrow = document.getElementById(id + '-arrow');
-      panel.style.display = panel.style.display === "block" ? "none" : "block";
-      arrow.textContent = panel.style.display === "block" ? "^" : "v";
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = 'flex';
+    }
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
     }
   </script>
 </body>
